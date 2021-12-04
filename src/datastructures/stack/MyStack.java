@@ -10,7 +10,7 @@ public class MyStack {
     // pointer to the top of the stack
     private int top;
     // data where we are gonna store
-    private int[] data;
+    private final int[] data;
 
     public MyStack(int howLarge) {
         // initialize stack to be empty
