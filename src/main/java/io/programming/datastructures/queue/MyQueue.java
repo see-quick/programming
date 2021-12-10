@@ -1,8 +1,6 @@
-package datastructures.queue;
+package io.programming.datastructures.queue;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Dynamic set implementation of the Queue using classic arrays and manipulate with int data type

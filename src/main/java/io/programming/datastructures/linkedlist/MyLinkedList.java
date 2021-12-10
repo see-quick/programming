@@ -1,4 +1,4 @@
-package datastructures.linkedlist;
+package io.programming.datastructures.linkedlist;
 
 public class MyLinkedList {
 
