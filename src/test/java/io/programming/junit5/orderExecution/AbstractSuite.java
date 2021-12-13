@@ -1,6 +1,5 @@
 package io.programming.junit5.orderExecution;
 
-import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,8 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Collections;
 
@@ -28,7 +27,6 @@ public class AbstractSuite {
 
     @BeforeAll
     void setUpTestSuite(ExtensionContext extensionContext) {
-        BasicConfigurator.configure();
         LOGGER.debug(String.join("", Collections.nCopies(76, "=")));
         LOGGER.debug(this.getClass().getName() + "- [BEFORE ALL] has been called.");
         beforeAllMayOverride(extensionContext);
