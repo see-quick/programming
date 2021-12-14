@@ -95,11 +95,33 @@ public class Recursion {
         return helperFact(n - 1, n * a);
     }
 
+    /**
+     * Head-recursive algorithm...
+     */
+    public static double myPow(double x, int n) {
+        // stop or abort condition
+        if(n == 0) {
+            return 1;
+        }
+        double auxiliary = myPow( x, n / 2);
+
+        if (n % 2 == 0) {
+            return auxiliary * auxiliary;
+        } else {
+            if(n > 0) {
+                return x * auxiliary * auxiliary;
+            } else {
+                return (auxiliary * auxiliary) / x;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(getReverseString("hello"));
         System.out.println(fibonacci(5));
         printIntegers(5);
         System.out.println(tailFact(5));
+        System.out.println(myPow(10, 30));
     }
 
 }
