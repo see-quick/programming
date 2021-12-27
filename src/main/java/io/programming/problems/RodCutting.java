@@ -11,6 +11,9 @@ import java.util.Arrays;
  * Consider the case when n D 4. Figure 15.2 shows all the ways to cut up a rod of 4 inches in length,
  * including the way with no cuts at all. We see that cutting a 4-inch rod into two 2-inch pieces produces revenue
  * p2 C p2 D 5 C 5 D 10, which is optimal.
+ *
+ * Note: Variation of the Unbounded Knapsack problem (you can make a reduction and translate this problem...)
+ *
  */
 public class RodCutting {
 
@@ -43,6 +46,18 @@ public class RodCutting {
         int[] table = new int[]{1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
 
         System.out.println(Arrays.toString(table));
+
+        // f.e. for length 2 there is the best result number `5`, because you have following options:
+        //  1. 1 1  -> 2
+        //  2. 2    -> 5   <--- here is the winner
         System.out.println(rodCut(table, 2));
+
+        // f.e. for length 4 is more complex there is the best result number `5`, because you have following options:
+        //  1. 1 1 1 1  -> 4
+        //  2. 2 1 1    -> 7
+        //  3. 2 2      -> 10 <--- here is the winner
+        //  4. 3 1      -> 9
+        //  5. 4        -> 9
+        System.out.println(rodCut(table, 4));
     }
 }
