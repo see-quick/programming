@@ -58,6 +58,42 @@ public class MaxDepthRecursive {
         return Math.max(left_depth, right_depth) + 1;
     }
 
+    /**
+     * Recursive traverse algorithm with linear time complexity O(n).
+     * @param node @code{node} from traverse the tree
+     */
+    private static void traversePreOrder(Node node) {
+        if (node == null) return;
+
+        System.out.println(node.key);
+        traversePreOrder(node.left);
+        traversePreOrder(node.right);
+    }
+
+    /**
+     * Recursive traverse algorithm with linear time complexity O(n).
+     * @param node @code{node} from traverse the tree
+     */
+    private static void traverseInOrder(Node node) {
+        if (node == null) return;
+
+        traversePreOrder(node.left);
+        System.out.println(node.key);
+        traversePreOrder(node.right);
+    }
+
+    /**
+     * Recursive traverse algorithm with linear time complexity O(n).
+     * @param node @code{node} from traverse the tree
+     */
+    private static void traversePostOrder(Node node) {
+        if (node == null) return;
+
+        traversePreOrder(node.left);
+        traversePreOrder(node.right);
+        System.out.println(node.key);
+    }
+
 
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree(
@@ -73,5 +109,15 @@ public class MaxDepthRecursive {
         System.out.println(maxDepth(binaryTree.root));
 
         System.out.println(maxDepth);
+
+        System.out.println("Traverse Pre-order");
+        System.out.println("======================");
+        traversePreOrder(binaryTree.root);
+        System.out.println("======================");
+        System.out.println("Traverse In-order");
+        traverseInOrder(binaryTree.root);
+        System.out.println("======================");
+        System.out.println("Traverse Post-order");
+        traversePostOrder(binaryTree.root);
     }
 }
