@@ -14,11 +14,55 @@ public class MaxDepthRecursive {
         }
     }
 
+    static class RedBlackNode {
+        int key;
+        boolean isBlack;
+        Node left;
+        Node right;
+
+        public RedBlackNode(int key, boolean isBlack, Node left, Node right) {
+            this.key = key;
+            this.isBlack = isBlack;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
     static class BinaryTree {
         Node root;
 
         public BinaryTree(Node root) {
             this.root = root;
+        }
+    }
+
+    /**
+     * Intro:
+     * A red-black tree is a kind of self-balancing binary search tree where each node has an extra bit,
+     * and that bit is often interpreted as the colour (red or black). These colours are used to ensure that
+     * the tree remains balanced during insertions and deletions. Although the balance of the tree is not perfect,
+     * it is good enough to reduce the searching time and maintain it around O(log n) time, where n is the total
+     * number of elements in the tree. This tree was invented in 1972 by Rudolf Bayer.
+     *
+     * Rules:
+     *  Every node has a colour either red or black.
+     *  The root of the tree is always black.
+     *  There are no two adjacent red nodes (A red node cannot have a red parent or red child).
+     *  Every path from a node (including root) to any of its descendants NULL nodes has the same number of black nodes.
+     *  All leaf nodes are black nodes.
+     *
+     * 1.	Search	O(log n)
+     * 2.	Insert	O(log n)
+     * 3.	Delete	O(log n)
+     */
+    static class RedBlackTree {
+
+        RedBlackNode root;
+
+        public RedBlackTree(RedBlackNode root) {
+            this.root = root;
+            // The root of the tree is always black.
+            this.root.isBlack = true;
         }
     }
 
