@@ -94,13 +94,34 @@ public class MaxDepthRecursive {
         System.out.println(node.key);
     }
 
+    /**
+     * Recursive search algorithm with linear time complexity O(h), where h is denoted as height of the binary tree
+     * @param n node
+     * @param key search key
+     * @return search item @code{key}
+     */
+    private static Integer search(Node n, int key) {
+        if (n == null || n.key == key) {
+            return key;
+        }
+        if (key < n.key) {
+            return search(n.left, key);
+        } else {
+            return search(n.right, key);
+        }
+    }
 
     public static void main(String[] args) {
+        //              10
+        //             /   \
+        //            5     -
+        //          /  \
+        //         2    7
         BinaryTree binaryTree = new BinaryTree(
-            new Node(0,
-                new Node(1,
+            new Node(10,
+                new Node(5,
                     new Node(2, null, null),
-                    new Node(3, null, null)),
+                    new Node(7, null, null)),
                 null));
 
         // top-down approach
@@ -119,5 +140,9 @@ public class MaxDepthRecursive {
         System.out.println("======================");
         System.out.println("Traverse Post-order");
         traversePostOrder(binaryTree.root);
+
+        System.out.println("======================");
+        System.out.println(search(binaryTree.root, 0));
+        System.out.println(search(binaryTree.root, 7));
     }
 }
