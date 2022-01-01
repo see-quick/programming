@@ -58,6 +58,7 @@ public class RodCutting {
         //  3. 2 2      -> 10 <--- here is the winner
         //  4. 3 1      -> 9
         //  5. 4        -> 9
+
         System.out.println(rodCut(table, 4));
     }
 }
